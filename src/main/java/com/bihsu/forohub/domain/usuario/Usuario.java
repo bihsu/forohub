@@ -40,4 +40,22 @@ public class Usuario {
 	@OneToMany(targetEntity = Respuesta.class, fetch = FetchType.LAZY, mappedBy = "usuario")
 	private List<Respuesta> respuestas;
 
+	
+	public Usuario(DatosRegistroUsuario datosRegistroUsuario) {
+		this.nombre = datosRegistroUsuario.nombre();
+		this.correoElectronico = datosRegistroUsuario.correoElectronico();
+		this.contrasena = datosRegistroUsuario.contrasena();
+	}
+	
+	public void actualizar(DatosActualizarUsuario datosActualizarUsuario) {
+		if(datosActualizarUsuario.nombre() != null) {
+			this.nombre = datosActualizarUsuario.nombre();
+		}
+		if(datosActualizarUsuario.correoElectronico() != null) {
+			this.correoElectronico = datosActualizarUsuario.correoElectronico();
+		}
+		if(datosActualizarUsuario.contrasena() != null) {
+			this.contrasena = datosActualizarUsuario.contrasena();
+		}
+	}
 }

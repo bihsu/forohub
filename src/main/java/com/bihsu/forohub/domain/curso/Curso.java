@@ -34,4 +34,18 @@ public class Curso {
 	
 	@OneToMany(targetEntity = Topico.class, fetch = FetchType.LAZY, mappedBy = "curso")
 	private List<Topico> topicos;
+	
+	public Curso(DatosRegistroCurso datosCurso) {
+		this.nombre = datosCurso.nombre();
+		this.categoria = datosCurso.categoria();
+	}
+	
+	public void actualizarDatos(DatosActulizarCurso datosActulizarCurso) {
+		if(datosActulizarCurso.nombre() != null) {
+			this.nombre = datosActulizarCurso.nombre();
+		}
+		if(datosActulizarCurso.categoria() != null) {
+			this.categoria = datosActulizarCurso.categoria();
+		}
+	}
 }
