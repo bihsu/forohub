@@ -1,5 +1,6 @@
 package com.bihsu.forohub.domain.topico;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -30,13 +31,14 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(of="id")
 public class Topico {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String titulo;
 	private String mensaje;
 	@Column(name="fecha_creacion")
-	private Date fechaCreacion;
+	private LocalDate fechaCreacion;
 	private Boolean estatus;
 	
 	@ManyToOne(targetEntity = Usuario.class)
@@ -49,4 +51,16 @@ public class Topico {
 	
 	@OneToMany(targetEntity = Respuesta.class, fetch = FetchType.LAZY, mappedBy = "topico")
 	private List<Respuesta> respuestas;
+	
+	public Topico(Long id, String titulo, String mensaje, LocalDate fechaCreacion, boolean estatus,
+			Usuario autor, Curso curso) {
+		// TODO Auto-generated constructor stub
+		this.id = id;
+		this.titulo = titulo;
+		this.mensaje = mensaje;
+		this.fechaCreacion = fechaCreacion;
+		this.estatus = estatus;
+		this.usuario = autor;
+		this.curso = curso;
+	}
 }

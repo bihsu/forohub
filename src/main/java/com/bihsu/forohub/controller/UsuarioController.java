@@ -1,4 +1,4 @@
-package com.bihsu.forohub.domain.usuario;
+package com.bihsu.forohub.controller;
 
 import java.net.URI;
 
@@ -15,6 +15,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import com.bihsu.forohub.domain.usuario.DatosActualizarUsuario;
+import com.bihsu.forohub.domain.usuario.DatosListaUsuario;
+import com.bihsu.forohub.domain.usuario.DatosRegistroUsuario;
+import com.bihsu.forohub.domain.usuario.DatosRespuestaUsuario;
+import com.bihsu.forohub.domain.usuario.Usuario;
+import com.bihsu.forohub.domain.usuario.UsuarioRepository;
 
 import jakarta.validation.Valid;
 
