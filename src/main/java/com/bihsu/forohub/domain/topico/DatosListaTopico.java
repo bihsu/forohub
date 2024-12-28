@@ -1,7 +1,6 @@
 package com.bihsu.forohub.domain.topico;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public record DatosListaTopico(
 		Long id,

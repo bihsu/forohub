@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bihsu.forohub.domain.topico.DatosDetalleTopico;
 import com.bihsu.forohub.domain.topico.DatosListaTopico;
 import com.bihsu.forohub.domain.topico.DatosRegistroTopico;
+import com.bihsu.forohub.domain.topico.DetalleConsultaTopico;
+import com.bihsu.forohub.domain.topico.DetalleTopico;
 import com.bihsu.forohub.domain.topico.ListarTopico;
 import com.bihsu.forohub.domain.topico.RegistrarTopico;
 
@@ -26,11 +28,13 @@ public class TopicoController {
 	
 	private RegistrarTopico registrarTopico;
 	private ListarTopico listarTopico;
+	private DetalleTopico detalleTopico;
 	
-	public TopicoController(RegistrarTopico registrarTopico, ListarTopico listarTopico) {
+	public TopicoController(RegistrarTopico registrarTopico, ListarTopico listarTopico, DetalleTopico detalleTopico) {
 		// TODO Auto-generated constructor stub
 		this.registrarTopico = registrarTopico;
 		this.listarTopico = listarTopico;
+		this.detalleTopico = detalleTopico;
 	}
 	
 	@PostMapping
@@ -58,6 +62,11 @@ public class TopicoController {
 	@GetMapping("/poranio/{anio}")
 	public ResponseEntity<Page<DatosListaTopico>> buscarPorAnioCreacion(@PathVariable("anio") Integer anio, Pageable pageable){
 		return ResponseEntity.ok(listarTopico.buscarPorAnio(anio, pageable));
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<DetalleConsultaTopico> buscarPorId(@PathVariable("id")String id){
+		return ResponseEntity.ok(detalleTopico.consultarPorId(id));
 	}
 
 }

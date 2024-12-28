@@ -1,6 +1,7 @@
 package com.bihsu.forohub.infra.errores;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -14,6 +15,11 @@ import jakarta.persistence.EntityNotFoundException;
 
 @RestControllerAdvice
 public class TratadorErrores {
+	
+	@ExceptionHandler(NoSuchElementException.class)
+	public ResponseEntity<String> notValuePresent(){
+		return ResponseEntity.badRequest().body("El elemento no existe");
+	}
 	
 	@ExceptionHandler(EntityNotFoundException.class)
 	public ResponseEntity<String> tratarError404(){
