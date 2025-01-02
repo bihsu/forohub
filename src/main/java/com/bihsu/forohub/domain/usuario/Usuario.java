@@ -47,6 +47,10 @@ public class Usuario {
 		this.contrasena = datosRegistroUsuario.contrasena();
 	}
 	
+	public Usuario(Long id) {
+		this.id = id;
+	}
+	
 	public void actualizar(DatosActualizarUsuario datosActualizarUsuario) {
 		if(datosActualizarUsuario.nombre() != null) {
 			this.nombre = datosActualizarUsuario.nombre();

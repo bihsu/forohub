@@ -62,4 +62,19 @@ public class Topico {
 		this.usuario = autor;
 		this.curso = curso;
 	}
+	
+	public void actualizar(DatosRegistroTopico datosRegistroTopico) {
+		if(datosRegistroTopico.titulo() != null) {
+			this.titulo = datosRegistroTopico.titulo();
+		}
+		if(datosRegistroTopico.mensaje() != null) {
+			this.mensaje = datosRegistroTopico.mensaje();
+		}
+		if(datosRegistroTopico.idAutor() != null) {
+			this.usuario = new Usuario(datosRegistroTopico.idAutor());
+		}
+		if(datosRegistroTopico.idCurso() != null) {
+			this.curso = new Curso(datosRegistroTopico.idCurso());
+		}
+	}
 }

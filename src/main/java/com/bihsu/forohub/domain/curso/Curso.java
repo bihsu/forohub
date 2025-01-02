@@ -40,6 +40,10 @@ public class Curso {
 		this.categoria = datosCurso.categoria();
 	}
 	
+	public Curso(Long id) {
+		this.id = id;
+	}
+	
 	public void actualizarDatos(DatosActulizarCurso datosActulizarCurso) {
 		if(datosActulizarCurso.nombre() != null) {
 			this.nombre = datosActulizarCurso.nombre();
