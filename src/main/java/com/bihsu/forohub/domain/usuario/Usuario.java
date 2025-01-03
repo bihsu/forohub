@@ -1,6 +1,10 @@
 package com.bihsu.forohub.domain.usuario;
 
+import java.util.Collection;
 import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import com.bihsu.forohub.domain.respuesta.Respuesta;
 import com.bihsu.forohub.domain.topico.Topico;
@@ -24,8 +28,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of="id")
-public class Usuario {
+public class Usuario implements UserDetails{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -61,5 +69,23 @@ public class Usuario {
 		if(datosActualizarUsuario.contrasena() != null) {
 			this.contrasena = datosActualizarUsuario.contrasena();
 		}
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return contrasena;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return correoElectronico;
 	}
 }
