@@ -23,10 +23,12 @@ import com.bihsu.forohub.domain.curso.DatosListarCurso;
 import com.bihsu.forohub.domain.curso.DatosRegistroCurso;
 import com.bihsu.forohub.domain.curso.DatosRespuestaCurso;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/cursos")
+@SecurityRequirement(name = "bearer-key")
 public class CursoController {
 	
 	private CursoRepository cursoRepository;

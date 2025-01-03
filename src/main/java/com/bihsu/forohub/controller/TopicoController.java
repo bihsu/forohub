@@ -24,10 +24,12 @@ import com.bihsu.forohub.domain.topico.EliminarTopico;
 import com.bihsu.forohub.domain.topico.ListarTopico;
 import com.bihsu.forohub.domain.topico.RegistrarTopico;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/topicos")
+@SecurityRequirement(name = "bearer-key")
 public class TopicoController {
 	
 	private RegistrarTopico registrarTopico;

@@ -23,10 +23,12 @@ import com.bihsu.forohub.domain.usuario.DatosRespuestaUsuario;
 import com.bihsu.forohub.domain.usuario.Usuario;
 import com.bihsu.forohub.domain.usuario.UsuarioRepository;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/usuarios")
+@SecurityRequirement(name = "bearer-key")
 public class UsuarioController {
 	
 	private UsuarioRepository usuarioRepository;
