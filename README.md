@@ -23,6 +23,7 @@ El proyecto tiene implementada la segurioda mediante JWT que se genera de forma 
 - `Paginación`
 - `Actulizar tópicos`
 - `Eliminar tópicos`
+- `Documentación de Apen API`
 
 ## Herramientas utilizadas
 ### - Java 21
